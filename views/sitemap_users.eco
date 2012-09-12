@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+          xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+          xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    <% for elem in @rows: %>
+      <% user = elem.doc %>
+      <url>
+        <loc>https://thelifeswap.com/#!/users/<%= user._id %></loc>
+
+        <% if user.image_big: %>
+          <image:image>
+            <image:loc>https:<%= user.image_big %></image:loc>
+          </image:image>
+        <% end %>
+
+        <% date = new Date(user.ctime) %>
+        <% month = date.getUTCMonth().toString() %>
+        <% month = "0#{month}" if month.length is 1 %>
+        <% day = date.getDate() %>
+        <% day = "0#{day}" if day.length is 1 %>
+
+        <% lastMod = "#{date.getUTCFullYear()}-#{month}-#{day}" %>
+        <lastmod><%= lastMod %></lastmod>
+
+        <priority>0.8</priority>
+      </url>
+    <% end %>
+  </urlset> 
+  
+  <!--
+  TODO: Add video stuff
+  <video:video>     
+    <video:content_loc>http://www.example.com/video123.flv</video:content_loc>
+    <video:player_loc allow_embed="yes"
+    autoplay="ap=1">http://www.example.com/videoplayer.swf?video=123</video:player_loc>
+    <video:thumbnail_loc>http://www.example.com/thumbs/123.jpg</video:thumbnail_loc>
+    <video:title>Grilling steaks for summer</video:title>  
+    <video:description>Get perfectly done steaks every time</video:description>
+  </video:video>
+  -->

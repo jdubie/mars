@@ -2,6 +2,7 @@ express = require('express')
 config  = require('./config')
 routes  = require('./routes')
 json    = require('./json')
+sitemap = require('./sitemap')
 
 #
 # Config server
@@ -15,10 +16,10 @@ app.set('views', __dirname + '/views')
 #
 # Sitemaps
 #
-#app.get('/sitemap.xml', sitemap.index)
-#app.get('/siteamp_about.xml', sitemap.about)
-#app.get('/swaps/sitemap.xml', json.all, sitemap.swaps)
-#app.get('/users/sitemap.xml', json.all, sitemap.swaps)
+app.get('/sitemap.xml', sitemap.index)
+app.get('/sitemap_about.xml', sitemap.about)
+app.get('/swaps/sitemap.xml', json.all, sitemap.swaps)
+app.get('/users/sitemap.xml', json.all, sitemap.users)
 
 #
 # Routes

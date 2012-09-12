@@ -1,9 +1,22 @@
 debug = require('debug')('mars/sitemap')
 
-# one
+# index
 #
 exports.index = (req, res) ->
-  res.render('index')
+  res.render('sitemap_index')
+
+# about
+#
+exports.about = (req, res) ->
+  res.render('sitemap_about')
+
+# swaps
+#
+exports.swaps = (req, res) ->
+  res.render('sitemap_swaps', req._json)
+
+exports.users = (req, res) ->
+  res.render('sitemap_users', req._json)
 
 # all
 #
