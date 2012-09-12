@@ -15,7 +15,11 @@ db = {}
 
 # Db connection
 switch process.env.ENV
-  when 'PROD', 'STAGE', 'TEST', 'DEV'
+  when 'PROD'
+    protocol = 'http:'
+    hostname = 'localhost'
+    port = 5984
+  when 'STAGE', 'TEST', 'DEV'
     protocol = 'http:'
     hostname = 'localhost'
     port = 5985
