@@ -8,4 +8,8 @@
      <loc>http://thelifeswap.com/#!/swaps/sitemap.xml</loc>
      <!-- <lastmod>2005-01-01</lastmod> -->
    </sitemap>
+   <sitemap>
+     <loc>http://thelifeswap.com/#!/sitemap_about.xml</loc>
+     <!-- <lastmod>2005-01-01</lastmod> -->
+   </sitemap>
  </sitemapindex>
