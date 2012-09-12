@@ -1,21 +1,23 @@
-console.error process.env.NODE_PATH
-
 express = require('express')
-config = require('./config')
-json = require('./json')
+config  = require('./config')
+routes  = require('./routes')
 
 #
-# Create server
+# Config server
 #
 app = express()
+engines = require('consolidate')
+app.engine('eco', engines.eco)
+app.set('view engine', 'eco')
+app.set('views', __dirname + '/views')
 
 #
 # JSON API
 #
-app.get('/swaps', json.all('swaps'))
-app.get('/users', json.all('users'))
-app.get('/swaps/:id', json.one)
-app.get('/users/:id', json.one)
+app.get('/swaps', routes.all('swaps'))
+app.get('/users', routes.all('users'))
+app.get('/swaps/:id', routes.one)
+app.get('/users/:id', routes.one)
 
 #
 # Start server

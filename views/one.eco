@@ -1,0 +1,24 @@
+<% for key, value of @: %>
+
+  <% # test for foreign keys %>
+  <% jadeKeys = ['cache', 'filename', 'settings'] %>
+  <% match = key.match /^(.+)_id$/ %>
+  <% urlBase = match[1] if match %>
+
+  <% if match: %>
+    <a href="#!/<%= urlBase %>s/<%= @_id %>">User</a>
+  
+  <% # filter out jadeKeys %>
+  <% else if key in jadeKeys: %>
+  <% else if typeof value is 'function': %>
+
+  <% # display images %>
+  <% else if value.match? /^.+\.(jpg|png|jpeg)/: %>
+    <img alt="<%= @title ? "#{@first_name} #{@last_name}" %>" src="https:<%= value %>"></img>
+  <% else: %>
+    <div><%= key %>: <%= value %></div>
+
+  <% end %>
+
+
+<% end %>

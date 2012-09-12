@@ -7,7 +7,9 @@
     "debug": "*",
     "nano": "*",
     "async": "*",
-    "forever": "*"
+    "forever": "*",
+    "consolidate": "*",
+    "eco": "*"
   },
   "devDependencies": {
     "mocha": "*",

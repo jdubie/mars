@@ -1,0 +1,20 @@
+<html>
+<% for row in @rows: %>
+  <% model = row.doc %>
+
+  <% if model.type is 'user': %>
+    <div class="user">
+      <img alt="<%= model.first_name %> <%= model.last_name %>" src="https:<%= model.image_big %>"></img>
+      <div><a href="#!/<%= @type %>s/<%= model._id %>"><%= model.first_name %> <%= model.last_name %></a></div>
+    </div>
+
+  <% else if model.type is 'swap': %>
+    <div>
+      <img alt="<% model.title %>" src="https:<%= model.image_big %>"></img>
+      <div><a href="#!/<%= @type %>s/<%= model._id %>"><%= model.title %></a></div>
+      <div><%= model.description %></div>
+    </div>
+  <% end %>
+
+<% end %>
+</html>
