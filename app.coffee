@@ -1,6 +1,7 @@
 express = require('express')
 config  = require('./config')
 routes  = require('./routes')
+json    = require('./json')
 
 #
 # Config server
@@ -12,12 +13,21 @@ app.set('view engine', 'eco')
 app.set('views', __dirname + '/views')
 
 #
-# JSON API
+# Sitemaps
 #
-app.get('/swaps', routes.all('swaps'))
-app.get('/users', routes.all('users'))
-app.get('/swaps/:id', routes.one)
-app.get('/users/:id', routes.one)
+#app.get('/sitemap.xml', sitemap.index)
+#app.get('/siteamp_about.xml', sitemap.about)
+#app.get('/swaps/sitemap.xml', json.all, sitemap.swaps)
+#app.get('/users/sitemap.xml', json.all, sitemap.swaps)
+
+#
+# Routes
+#
+app.get('/', routes.root)
+app.get('/swaps', json.all, routes.all)
+app.get('/users', json.all, routes.all)
+app.get('/swaps/:id', json.one, routes.one)
+app.get('/users/:id', json.one, routes.one)
 
 #
 # Start server
