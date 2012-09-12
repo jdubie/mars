@@ -7,8 +7,8 @@ exports.index = (req, res) ->
 
 # about
 #
-exports.about = (req, res) ->
-  res.render('sitemap_about')
+exports.static = (req, res) ->
+  res.render('sitemap_static')
 
 # swaps
 #

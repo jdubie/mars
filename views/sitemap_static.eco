@@ -2,6 +2,8 @@
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
           xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
           xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+    <!-- ABOUT -->
     <url>
       <loc>https://thelifeswap.com/#!/about</loc>
       <lastmod>2012-10-11</lastmod>
@@ -23,6 +25,19 @@
         <video:title>Grilling steaks for summer</video:title>  
         <video:description>Get perfectly done steaks every time</video:description>
       </video:video>
+    </url>
 
+    <!-- TERMS -->
+    <url>
+      <loc>https://thelifeswap.com/#!/terms</loc>
+      <lastmod>2012-10-11</lastmod>
+      <priority>0.8</priority>
+    </url>
+
+    <!-- PRIVACY -->
+    <url>
+      <loc>https://thelifeswap.com/#!/privacy</loc>
+      <lastmod>2012-10-11</lastmod>
+      <priority>0.8</priority>
     </url>
   </urlset> 

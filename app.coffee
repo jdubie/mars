@@ -17,7 +17,7 @@ app.set('views', __dirname + '/views')
 # Sitemaps
 #
 app.get('/sitemap.xml', sitemap.index)
-app.get('/sitemap_about.xml', sitemap.about)
+app.get('/sitemap_static.xml', sitemap.static)
 app.get('/swaps/sitemap.xml', json.all, sitemap.swaps)
 app.get('/users/sitemap.xml', json.all, sitemap.users)
 
