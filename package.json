@@ -1,0 +1,16 @@
+{
+  "name": "mars",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "coffee-script": "*",
+    "debug": "*",
+    "nano": "*",
+    "async": "*",
+    "forever": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  }
+}
