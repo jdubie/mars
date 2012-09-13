@@ -13,10 +13,10 @@ exports.static = (req, res) ->
 # swaps
 #
 exports.swaps = (req, res) ->
-  res.render('sitemap_swaps', req._json)
+  res.render('sitemap_all', req._json)
 
 exports.users = (req, res) ->
-  res.render('sitemap_users', req._json)
+  res.render('sitemap_all', req._json)
 
 # all
 #
