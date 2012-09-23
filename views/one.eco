@@ -3,7 +3,7 @@
   <head>
     <% if @type is 'swap': %>
       <meta name="description" content="title: <%=@title%>, industry: <%=@industry%>, city: <%=@city%>, state: <%=@state %>, entity: <%=@entity%>, website: <%=@website%>, price: <%=@price%>">
-    <% else: %>
+    <% else if @type is 'user': %>
       <meta name="description" content="first name: <%=@first_name%>, last name: <%=@last_name%>, gender: <%=@gender%>">
     <% end %>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -20,7 +20,11 @@
       <% urlBase = match[1] if match %>
 
       <% if match: %>
-        <a href="https://thelifeswap.com/#!/<%= urlBase %>s/<%= @_id %>">User</a>
+        <% if urlBase is 'beneficiary': %>
+          <a href="https://thelifeswap.com/#!/beneficiaries/<%= value %>"><%= urlBase %></a>
+        <% else: %>
+          <a href="https://thelifeswap.com/#!/<%= urlBase %>s/<%= value %>"><%= urlBase %></a>
+        <% end %>
       <% # filter out jadeKeys %>
       <% else if key in jadeKeys: %>
       <% else if typeof value is 'function': %>
