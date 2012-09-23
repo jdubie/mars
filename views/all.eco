@@ -9,6 +9,7 @@
       <meta name="description" content="All Users">
       <title>All Users | LifeSwap</title>
     <% end %>
+    <meta name="fragment" content="!">
   </head>
   <body>
     <% for row in @rows: %>
