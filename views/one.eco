@@ -1,24 +1,38 @@
-<% for key, value of @: %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <% if @type is 'swap': %>
+      <meta name="description" content="title: <%=@title%>, industry: <%=@industry%>, city: <%=@city%>, state: <%=@state %>, entity: <%=@entity%>, website: <%=@website%>, price: <%=@price%>">
+    <% else: %>
+      <meta name="description" content="first name: <%=@first_name%>, last name: <%=@last_name%>, gender: <%=@gender%>">
+    <% end %>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title><%= @title ? "#{@first_name} #{@last_name}" %> | LifeSwap</title>
+    <!-- <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34="/> -->
+    <!-- <meta name="robots" content="noindex,nofollow"> -->
+  </head>
+  <body>
+    <% for key, value of @: %>
 
-  <% # test for foreign keys %>
-  <% jadeKeys = ['cache', 'filename', 'settings'] %>
-  <% match = key.match /^(.+)_id$/ %>
-  <% urlBase = match[1] if match %>
+      <% # test for foreign keys %>
+      <% jadeKeys = ['cache', 'filename', 'settings'] %>
+      <% match = key.match /^(.+)_id$/ %>
+      <% urlBase = match[1] if match %>
 
-  <% if match: %>
-    <a href="#!/<%= urlBase %>s/<%= @_id %>">User</a>
-  
-  <% # filter out jadeKeys %>
-  <% else if key in jadeKeys: %>
-  <% else if typeof value is 'function': %>
+      <% if match: %>
+        <a href="https://thelifeswap.com/#!/<%= urlBase %>s/<%= @_id %>">User</a>
+      <% # filter out jadeKeys %>
+      <% else if key in jadeKeys: %>
+      <% else if typeof value is 'function': %>
+      <% else if typeof value is 'object': %>
+      <% else if key in ['_id', '_rev', 'name', 'type', 'ctime', 'mtime']: %>
 
-  <% # display images %>
-  <% else if value.match? /^.+\.(jpg|png|jpeg)/: %>
-    <img alt="<%= @title ? "#{@first_name} #{@last_name}" %>" src="https:<%= value %>"></img>
-  <% else: %>
-    <div><%= key %>: <%= value %></div>
-
-  <% end %>
-
-
-<% end %>
+      <% # display images %>
+      <% else if value.match? /^.+\.(jpg|png|jpeg)/: %>
+        <img alt="<%= @title ? "#{@first_name} #{@last_name}" %>" src="https:<%= value %>"></img>
+      <% else: %>
+        <div><%= key %>: <%= value %></div>
+      <% end %>
+    <% end %>
+  </body>
+</html>
