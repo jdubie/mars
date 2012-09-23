@@ -22,11 +22,13 @@
         </div>
 
       <% else if model.type is 'swap': %>
-        <div>
-          <img alt="<% model.title %>" src="https:<%= model.image_big %>"></img>
-          <div><a href="https://thelifeswap.com/#!/<%= model.type %>s/<%= model._id %>"><%= model.title %></a></div>
-          <div><%= model.description %></div>
-        </div>
+        <% if model.status is 'approved': %>
+          <div>
+            <img alt="<% model.title %>" src="https:<%= model.image_big %>"></img>
+            <div><a href="https://thelifeswap.com/#!/<%= model.type %>s/<%= model._id %>"><%= model.title %></a></div>
+            <div><%= model.description %></div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </body>
