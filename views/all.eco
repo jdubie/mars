@@ -1,20 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<% for row in @rows: %>
-  <% model = row.doc %>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <% if @rows?[0]?.doc?.type is 'swap': %>
+      <meta name="description" content="All LifeSwaps">
+      <title>All LifeSwaps | LifeSwap</title>
+    <% else if @rows?[0]?.doc?.type is 'user': %>
+      <meta name="description" content="All Users">
+      <title>All Users | LifeSwap</title>
+    <% end %>
+  </head>
+  <body>
+    <% for row in @rows: %>
+      <% model = row.doc %>
 
-  <% if model.type is 'user': %>
-    <div class="user">
-      <img alt="<%= model.first_name %> <%= model.last_name %>" src="https:<%= model.image_big %>"></img>
-      <div><a href="#!/<%= model.type %>s/<%= model._id %>"><%= model.first_name %> <%= model.last_name %></a></div>
-    </div>
+      <% if model.type is 'user': %>
+        <div class="user">
+          <img alt="<%= model.first_name %> <%= model.last_name %>" src="https:<%= model.image_big %>"></img>
+          <div><a href="https://thelifeswap.com/#!/<%= model.type %>s/<%= model._id %>"><%= model.first_name %> <%= model.last_name %></a></div>
+        </div>
 
-  <% else if model.type is 'swap': %>
-    <div>
-      <img alt="<% model.title %>" src="https:<%= model.image_big %>"></img>
-      <div><a href="#!/<%= model.type %>s/<%= model._id %>"><%= model.title %></a></div>
-      <div><%= model.description %></div>
-    </div>
-  <% end %>
-
-<% end %>
+      <% else if model.type is 'swap': %>
+        <div>
+          <img alt="<% model.title %>" src="https:<%= model.image_big %>"></img>
+          <div><a href="https://thelifeswap.com/#!/<%= model.type %>s/<%= model._id %>"><%= model.title %></a></div>
+          <div><%= model.description %></div>
+        </div>
+      <% end %>
+    <% end %>
+  </body>
 </html>
